@@ -14,8 +14,15 @@ public class BusController {
     @Autowired
     private BusService busService;
 
-    @GetMapping("/search")
-    public List<Bus> searchBuses(@RequestParam String departureCity, @RequestParam String destinationCity) {
-        return busService.searchBuses(departureCity, destinationCity);
+    // Search for buses with bus data (POST request)
+    @PostMapping("/search")
+    public List<Bus> searchBuses(@RequestBody Bus searchRequest) {
+        // Use the date strings directly without parsing
+        return busService.searchBuses(
+                searchRequest.getDepartureCity(),
+                searchRequest.getDestinationCity(),
+                searchRequest.getDepartureTime(),
+                searchRequest.getArrivalTime()
+        );
     }
 }

@@ -16,7 +16,7 @@ public class BookingController {
         return bookingService.bookTicket(bookingRequest.getEmail(), bookingRequest.getBusNo(), bookingRequest.getRequestedSeats());
     }
 
-    // Inner class to represent the booking request body
+    // Inner class for booking request data
     public static class BookingRequest {
         private String email;
         private String busNo;

@@ -15,11 +15,13 @@ public class Bus {
     private String busNo;
     private String busType;
     private int totalSeats;
-    private List<Integer> availableSeats; // Changed to List<Integer>
+    private List<Integer> availableSeats;
     private float price;
-    private String departureCity; // Added field
-    private String destinationCity; // Added field
+    private String departureCity;
+    private String destinationCity;
+    private String departureTime;   // Changed to String
+    private String arrivalTime;     // Changed to String
 
     @DBRef
-    private Schedule schedule;  // Use DBRef for referencing Schedule
+    private Schedule schedule;  // For reference to a Schedule model, if needed
 }
