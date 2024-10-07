@@ -13,24 +13,17 @@ public class PaymentController {
 
     @PostMapping("/process")
     public String processPayment(@RequestBody PaymentRequest paymentRequest) {
-        return paymentService.processPayment(paymentRequest.getBookingId(), paymentRequest.getAmount(), paymentRequest.getPaymentMethod());
+        return paymentService.processPayment(paymentRequest.getAmount(), paymentRequest.getPaymentMethod(),
+                paymentRequest.getEmail());
     }
 
     // Inner class to represent the payment request body
     public static class PaymentRequest {
-        private String bookingId; // Changed to bookingId
         private float amount;
         private String paymentMethod;
+        private String email; // Add the email field
 
         // Getters and setters
-        public String getBookingId() {
-            return bookingId;
-        }
-
-        public void setBookingId(String bookingId) {
-            this.bookingId = bookingId;
-        }
-
         public float getAmount() {
             return amount;
         }
@@ -45,6 +38,14 @@ public class PaymentController {
 
         public void setPaymentMethod(String paymentMethod) {
             this.paymentMethod = paymentMethod;
+        }
+
+        public String getEmail() { // Getter for email
+            return email;
+        }
+
+        public void setEmail(String email) { // Setter for email
+            this.email = email;
         }
     }
 }

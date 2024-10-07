@@ -17,4 +17,5 @@ public class Payment {
     private float amount;
     private String paymentMethod; // e.g. "credit card", "debit card"
     private String status; // e.g. "completed", "pending"
+    private String userEmail; // Added to store user email if needed
 }
